@@ -14,7 +14,15 @@
             memoryMB: 512 // Adjust as needed for your app
           };
 
-          await cheerpjInit(options: {version: 11; javaProperties: ["file.encoding=UF-8", "netlogo.models.dir=/netlogo/models", "netlogo.extensions.dir=/netlogo/extensions"] });
+          await cheerpjInit({
+                version: 11,
+                javaProperties: [
+                  "file.encoding=UTF-8",
+                  "netlogo.models.dir=/netlogo/models",
+                  "netlogo.extensions.dir=/netlogo/extensions"
+                 ]
+              });
+
 
           // System properties (only basic ones supported)
 
