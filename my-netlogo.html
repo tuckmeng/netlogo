@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>NetLogo 7.0.0 via CheerpJ</title>
+    <script src="https://cjrtnc.leaningtech.com/4.2/loader.js"></script>
+  </head>
+  <body>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        try {
+          // Set memory to roughly match MaxRAMPercentage=50
+          window.cheerpjConfig = {
+            memoryMB: 512 // Adjust as needed for your app
+          };
+
+          await cheerpjInit();
+
+          // System properties (only basic ones supported)
+          cheerpjSetSystemProperty("file.encoding", "UTF-8");
+          cheerpjSetSystemProperty("netlogo.models.dir", "/models");
+          cheerpjSetSystemProperty("netlogo.extensions.dir", "/extensions");
+
+          // Create display for GUI apps (NetLogo uses Swing)
+          cheerpjCreateDisplay(1024, 768);
+
+          // Launch main class from the JAR
+          await cheerpjRunJar("/app/netlogo/netlogo-7.0.0.jar", "org.nlogo.app.App");
+
+          console.log("NetLogo app launched.");
+        } catch (e) {
+          console.error("Error launching NetLogo:", e);
+        }
+      });
+    </script>
+  </body>
+</html>
