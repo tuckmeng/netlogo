@@ -14,12 +14,9 @@
             memoryMB: 512 // Adjust as needed for your app
           };
 
-          await cheerpjInit();
+          await cheerpjInit({ javaProperties: ["file.encoding=UF-8", "netlogo.models.dir=/netlogo/models", "netlogo.extensions.dir=/netlogo/extensions"] });
 
           // System properties (only basic ones supported)
-          cheerpjSetSystemProperty("file.encoding", "UTF-8");
-          cheerpjSetSystemProperty("netlogo.models.dir", "/netlogo/models");
-          cheerpjSetSystemProperty("netlogo.extensions.dir", "/netlogo/extensions");
 
           // Create display for GUI apps (NetLogo uses Swing)
           cheerpjCreateDisplay(1024, 768);
